@@ -12,7 +12,7 @@ const SignUp = () => {
 
                     <input type="text" name="name" placeholder="Name" className="border-b-2 border-black focus-visible:outline-none p-4 bg-transparent" required />
 
-                    <input type="" name="email" placeholder="Email" className="border-b-2 border-black focus-visible:outline-none p-4 bg-transparent" required />
+                    <input type="tex" name="image" placeholder="Image URL" className="border-b-2 border-black focus-visible:outline-none p-4 bg-transparent" required />
 
                     <input type="email" name="email" placeholder="Email" className="border-b-2 border-black focus-visible:outline-none p-4 bg-transparent" required />
 
@@ -21,10 +21,10 @@ const SignUp = () => {
 
                     <div className="form-control mt-6">
 
-                        <button className="bg-black w-full text-white text-md font-bold px-4 py-2 rounded-md">Login</button>
+                        <button className="bg-black w-full text-white text-md font-bold px-4 py-2 rounded-md">Register</button>
 
                     </div>
-                    <p className="text-md">Do not have an account yet? <Link to={"/signup"} className="text-red-600 font-bold">Sign Up</Link></p>
+                    <p className="text-md">Have an account? <Link to={"/login"} className="text-red-600 font-bold">Login</Link></p>
                     <hr className="mt-5 bg-red" />
                     <div className="mx-20 flex items-center justify-around">
                         <h3 className="text-black text-xl font-medium">Continue with :</h3>

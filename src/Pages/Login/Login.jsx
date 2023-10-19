@@ -1,9 +1,26 @@
 import { Link } from "react-router-dom";
 import { } from 'react-icons/fa';
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
+
 
 
 const Login = () => {
 
+    const {googleSignin} = useContext(AuthContext);
+
+
+    // Login with google
+
+    const handelGoogle = () =>{
+        googleSignin()
+        .then(result =>{
+            console.log(result);
+        })
+        .catch(error =>{
+            console.error(error);
+        })
+    }
     return (
         <div>
             <div className="max-w-lg mx-auto">
@@ -27,7 +44,7 @@ const Login = () => {
                     <hr className="mt-5 bg-red" />
                     <div className="mx-20 flex items-center justify-around">
                         <h3 className="text-black text-xl font-medium">Continue with :</h3>
-                        <button className=" border-2 border-red-600 text-black text-md font-bold px-4 py-2 rounded-md flex items-center justify-center">
+                        <button onClick={handelGoogle} className=" border-2 border-red-600 text-black text-md font-bold px-4 py-2 rounded-md flex items-center justify-center">
                             <svg viewBox="0 0 48 48" className="w-5 mr-2">
                                 <title>Google Logo</title>
                                 <clipPath id="g">
