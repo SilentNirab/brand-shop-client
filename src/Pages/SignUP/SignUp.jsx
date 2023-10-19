@@ -1,9 +1,13 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { updateProfile } from "firebase/auth";
+import { toast } from "react-toastify";
 
 const SignUp = () => {
 
+    const location = useLocation();
+    const navigate = useNavigate();
     const {googleSignin, signUp} = useContext(AuthContext);
 
         //signup with email and password
@@ -17,8 +21,35 @@ const SignUp = () => {
             console.log(form, name, image, email, password);
 
             signUp(email, password)
-            .then(result =>{
-                console.log(result);
+                .then(result => {
+                    // user proflie update
+                    updateProfile(result.user, {
+                        displayName: name,
+                         photoURL: image
+                    }).then(() => {
+    
+                        console.log("Profile updated!");
+                    }).catch((error) => {
+                        console.error(error);
+                    });
+
+                    if (password.length < 6) {
+                        toast("Password should be at least 6 characters or longer!");
+                        return;
+                    }
+                    else if (!/[A-Z]/.test(password)) {
+                        toast('Your password should have at least one upper case characters!');
+                        return;
+                    }
+                    else if (!/(?=.*[@$!%*#?&])/.test(password)) {
+                        toast('Your password should have at least one special characters.');
+                        return;
+                    }
+                    else{
+                        toast("Successfuly Sign Up");
+                    }
+                 //navigat after login
+                navigate(location?.state ? location.state : '/');
             })
             .catch(error =>{
                 console.error(error);
@@ -31,6 +62,8 @@ const SignUp = () => {
         googleSignin()
         .then(result =>{
             console.log(result);
+            //navigat after login
+            navigate(location?.state ? location.state : '/');
         })
         .catch(error =>{
             console.error(error);

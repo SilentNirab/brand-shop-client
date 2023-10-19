@@ -1,13 +1,15 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { } from 'react-icons/fa';
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
-
-
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Login = () => {
 
+    const location = useLocation();
+    const navigate = useNavigate();
     const {googleSignin, signIn} = useContext(AuthContext);
 
     //signin with email and password
@@ -16,11 +18,13 @@ const Login = () => {
         const form = new FormData(e.currentTarget);
         const email = form.get("email");
         const password = form.get("password");
-        console.log(form, email, password);
 
         signIn(email, password)
         .then(result =>{
             console.log(result);
+            toast.success("Successfully Login!");
+            //navigat after login
+            navigate(location?.state ? location.state : '/');
         })
         .catch(error =>{
             console.error(error);
@@ -32,6 +36,9 @@ const Login = () => {
         googleSignin()
         .then(result =>{
             console.log(result);
+            toast.success("Successfully Login!");
+            //navigat after login
+            navigate(location?.state ? location.state : '/');
         })
         .catch(error =>{
             console.error(error);
@@ -74,10 +81,8 @@ const Login = () => {
                                 </g>
                             </svg>
                              Google</button>
-
                     </div>
                 </form>
-
             </div>
         </div>
 
