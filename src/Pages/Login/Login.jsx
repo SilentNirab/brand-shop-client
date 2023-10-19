@@ -17,6 +17,14 @@ const Login = () => {
         const email = form.get("email");
         const password = form.get("password");
         console.log(form, email, password);
+
+        signIn(email, password)
+        .then(result =>{
+            console.log(result);
+        })
+        .catch(error =>{
+            console.error(error);
+        })
     }
     // Login with google
 
