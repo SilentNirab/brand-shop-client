@@ -5,11 +5,19 @@ import { AuthContext } from "../../Provider/AuthProvider";
 
 
 
+
 const Login = () => {
 
-    const {googleSignin} = useContext(AuthContext);
+    const {googleSignin, signIn} = useContext(AuthContext);
 
-
+    //signin with email and password
+    const handelSignin = e =>{
+        e.preventDefault();
+        const form = new FormData(e.currentTarget);
+        const email = form.get("email");
+        const password = form.get("password");
+        console.log(form, email, password);
+    }
     // Login with google
 
     const handelGoogle = () =>{
@@ -28,7 +36,7 @@ const Login = () => {
                     <h3 className="text-6xl text-black font-bold text-center py-8">Login</h3>
                     <p className="text-xl text-black font-semibold text-center">Welcome back! Sign in to your account</p>
                 </div>
-                <form className="card-body 2">
+                <form onSubmit={handelSignin} className="card-body 2">
                     <div className="form-control">
                         <input type="email" name="email" placeholder="Email" className="border-b-2 border-black focus-visible:outline-none p-4 bg-transparent" required />
                     </div>

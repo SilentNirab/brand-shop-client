@@ -1,6 +1,41 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const SignUp = () => {
+
+    const {googleSignin, signUp} = useContext(AuthContext);
+
+        //signup with email and password
+        const handelSignUp = e =>{
+            e.preventDefault();
+            const form = new FormData(e.currentTarget);
+            const name = form.get("name");
+            const image = form.get("image");
+            const email = form.get("email");
+            const password = form.get("password");
+            console.log(form, name, image, email, password);
+
+            signUp(email, password)
+            .then(result =>{
+                console.log(result);
+            })
+            .catch(error =>{
+                console.error(error);
+            })
+        }
+
+    // Login with google
+
+    const handelGoogle = () =>{
+        googleSignin()
+        .then(result =>{
+            console.log(result);
+        })
+        .catch(error =>{
+            console.error(error);
+        })
+    }
     return (
         <div>
             <div className="max-w-lg mx-auto">
@@ -8,7 +43,7 @@ const SignUp = () => {
                     <h3 className="text-6xl text-black font-bold text-center py-8">Register</h3>
                     <p className="text-xl text-black font-semibold text-center">Create new account today.</p>
                 </div>
-                <form className="card-body 2">
+                <form onSubmit={handelSignUp} className="card-body 2">
 
                     <input type="text" name="name" placeholder="Name" className="border-b-2 border-black focus-visible:outline-none p-4 bg-transparent" required />
 
@@ -28,7 +63,7 @@ const SignUp = () => {
                     <hr className="mt-5 bg-red" />
                     <div className="mx-20 flex items-center justify-around">
                         <h3 className="text-black text-xl font-medium">Continue with :</h3>
-                        <button className=" border-2 border-red-600 text-black text-md font-bold px-4 py-2 rounded-md flex items-center justify-center">
+                        <button onClick={handelGoogle} className=" border-2 border-red-600 text-black text-md font-bold px-4 py-2 rounded-md flex items-center justify-center">
                             <svg viewBox="0 0 48 48" className="w-5 mr-2">
                                 <title>Google Logo</title>
                                 <clipPath id="g">
