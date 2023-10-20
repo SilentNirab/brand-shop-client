@@ -32,7 +32,7 @@ const AddProducts = () => {
     }
     return (
         <div>
-            <h2>Add Products</h2>
+            <h2 className="text-center text-3xl font-bold mt-4">Add Your Products</h2>
             <form onSubmit={handelAddProduct} className="card-body 2 max-w-md mx-auto">
 
                 <input type="text" name="image" placeholder="Image" className="border-b-2 border-black focus-visible:outline-none p-4 bg-transparent" required />

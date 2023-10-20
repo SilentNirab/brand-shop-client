@@ -6,7 +6,7 @@ import BrandCard from "./BrandCard";
 
 const Home = () => {
     const carBrands = useLoaderData();
-    console.log(carBrands);
+    
     return (
         <div>
             <Banner></Banner>

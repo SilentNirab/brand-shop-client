@@ -7,6 +7,8 @@ import MyCart from "../Pages/MyCart/MyCart";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUP/SignUp";
 import PrivetRouter from "../Provider/PrivetRouter";
+import CarCollections from "../Pages/CarCollections/CarCollections";
+
 
 
 const router = createBrowserRouter([
@@ -19,6 +21,11 @@ const router = createBrowserRouter([
             path: "/",
             element: <Home></Home>,
             loader: () => fetch('/car-brand.json')
+        },
+        {
+           path: "/carcollections/:name",
+           element: <CarCollections></CarCollections>,
+           loader: () => fetch('http://localhost:5000/car')
         },
         {
             path: "/addproducts",
