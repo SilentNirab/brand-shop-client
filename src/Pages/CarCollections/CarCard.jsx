@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 
 const CarCard = ({ car }) => {
     const { image, name, brand, type, price, description, rating } = car;
@@ -19,6 +20,10 @@ const CarCard = ({ car }) => {
             </div>
         </div>
     );
+};
+
+CarCard.propTypes = {
+    car:PropTypes.array
 };
 
 export default CarCard;

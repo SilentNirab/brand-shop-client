@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const BrandCard = ({ carBrand }) => {
     const { name, image } = carBrand;
@@ -10,6 +11,10 @@ const BrandCard = ({ carBrand }) => {
             </div>
         </Link>
     );
+};
+
+BrandCard.propTypes = {
+    carBrand:PropTypes.array
 };
 
 export default BrandCard;
