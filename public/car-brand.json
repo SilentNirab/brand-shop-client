@@ -1,0 +1,32 @@
+[
+    {
+      "id" : 1,
+      "name": "Toyota",
+      "image": "https://i.ibb.co/27JPHtP/minivan.png"
+    },
+    {
+      "id" : 2,
+      "name": "Ford",
+      "image": "https://i.ibb.co/WnM4jq1/sport2.png"
+    },
+    {
+      "id" : 3,
+      "name": "Lamborghini",
+      "image": "https://i.ibb.co/zGsCLcD/super4.png"
+    },
+    {
+      "id" : 4,
+      "name": "BMW",
+      "image": "https://i.ibb.co/GWNCDD4/sedan.png"
+    },
+    {
+      "id" : 5,
+      "name": "Audi",
+      "image": "https://i.ibb.co/fDH7vgC/coupe2.png"
+    },
+    {
+      "id" : 6,
+      "name": "Nissan",
+      "image": "https://i.ibb.co/fCYBcXj/suv2.png"
+    }
+  ]

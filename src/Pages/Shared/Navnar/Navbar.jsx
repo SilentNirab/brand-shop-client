@@ -33,7 +33,7 @@ const Navbar = () => {
                     : isPending
                         ? "pending "
                         : ""
-            }>AddProducts</NavLink>
+            }>Add Products</NavLink>
         </li>
         <li className="font-bold text-lg">
             <NavLink to={'/mycart'} className={({ isActive, isPending }) =>
@@ -73,7 +73,7 @@ const Navbar = () => {
                         user ?
                             <div className="dropdown dropdown-end">
                                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                                    <div className="w-10 rounded-full">
+                                    <div className="w-10 rounded-full border-black border-2">
                                         <img src={user.photoURL} />
                                     </div>
                                 </label>

@@ -18,7 +18,22 @@ const SignUp = () => {
             const image = form.get("image");
             const email = form.get("email");
             const password = form.get("password");
-            console.log(form, name, image, email, password);
+
+            if (password.length < 6) {
+                toast.warn("Password should be at least 6 characters or longer!");
+                return;
+            }
+            else if (!/[A-Z]/.test(password)) {
+                toast.warn('Your password should have at least one upper case characters!');
+                return;
+            }
+            else if (!/(?=.*[@$!%*#?&])/.test(password)) {
+                toast.warn('Your password should have at least one special characters.');
+                return;
+            }
+            else{
+                toast.success("Successfuly Sign Up");
+            }
 
             signUp(email, password)
                 .then(result => {
@@ -33,21 +48,7 @@ const SignUp = () => {
                         console.error(error);
                     });
 
-                    if (password.length < 6) {
-                        toast("Password should be at least 6 characters or longer!");
-                        return;
-                    }
-                    else if (!/[A-Z]/.test(password)) {
-                        toast('Your password should have at least one upper case characters!');
-                        return;
-                    }
-                    else if (!/(?=.*[@$!%*#?&])/.test(password)) {
-                        toast('Your password should have at least one special characters.');
-                        return;
-                    }
-                    else{
-                        toast("Successfuly Sign Up");
-                    }
+                    
                  //navigat after login
                 navigate(location?.state ? location.state : '/');
             })
