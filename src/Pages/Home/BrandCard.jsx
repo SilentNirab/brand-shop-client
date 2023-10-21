@@ -14,7 +14,7 @@ const BrandCard = ({ carBrand }) => {
 };
 
 BrandCard.propTypes = {
-    carBrand:PropTypes.array
+    carBrand:PropTypes.object
 };
 
 export default BrandCard;

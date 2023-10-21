@@ -13,7 +13,7 @@ const AddProducts = () => {
         const description = form.get("description");
         const rating = form.get("rating");
         
-        const newCar ={image, name, brand, type, price, description, rating}
+        const newCar ={image, name, brand, type, price, description, rating};
 
         // send data to the server
 
@@ -27,7 +27,7 @@ const AddProducts = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                toast("Good job!", "You clicked the button!", "success");
+                toast.success("Product added successfully");
             })
     }
     return (

@@ -8,6 +8,8 @@ import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUP/SignUp";
 import PrivetRouter from "../Provider/PrivetRouter";
 import CarCollections from "../Pages/CarCollections/CarCollections";
+import ViewDetails from "../Pages/CarCollections/ViewDetails";
+import UpdateProduct from "../Pages/UpdateProduct/UpdateProduct";
 
 
 
@@ -34,6 +36,16 @@ const router = createBrowserRouter([
         {
             path: "/mycart",
             element: <PrivetRouter><MyCart></MyCart></PrivetRouter>
+        },
+        {
+            path: "/viewdetails/:id",
+            element: <ViewDetails></ViewDetails>,
+            loader: () => fetch('http://localhost:5000/car')
+        },
+        {
+            path: "/updateproduct/:id",
+            element: <PrivetRouter><UpdateProduct></UpdateProduct></PrivetRouter>,
+            loader: ({params}) => fetch(`http://localhost:5000/car/${params.id}`)
         },
         {
             path: "/login",
