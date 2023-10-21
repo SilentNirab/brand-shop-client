@@ -17,7 +17,7 @@ const AddProducts = () => {
 
         // send data to the server
 
-        fetch('http://localhost:5000/car', {
+        fetch('https://brand-shop-server-o20o5wart-md-nirabs-projects.vercel.app/car', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -1,10 +1,17 @@
 import { Link, useLoaderData, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
+import { saveCar } from "../../Utiliti/Localstorage";
+
 
 const ViewDetails = () => {
     const {id} = useParams();
     const cars = useLoaderData();
     const car = cars.find(car => car._id == id);
-    const {_id,image, name, brand, type, price, description, rating } = car;
+    const {image, name, brand, type, price, description, rating } = car;
+    const handelCart = () =>{
+        toast.success("Add to Cart Succesfully!");
+        saveCar(id);
+    }
     return (
         <div>
             <div className="card md:max-w-3xl lg:max-w-5xl bg-base-100 shadow-xl mx-auto my-5">
@@ -17,7 +24,7 @@ const ViewDetails = () => {
                     <p className="text-lg font-normal"><span className='text-xl font-bold'>Discription: </span>{description}</p>
                     <p><span className='text-xl font-bold'>Rating: </span>{rating}</p>
                     <div className="card-actions justify-end">
-                        <Link to={`/addCart/${_id}`}><button className="btn bg-gray-200"> Add to Cart</button></Link>
+                        <Link ><button onClick={() => handelCart(car)} className="btn bg-gray-200"> Add to Cart</button></Link>
                     </div>
                 </div>
             </div>

@@ -25,7 +25,7 @@ const CarCard = ({ car }) => {
 };
 
 CarCard.propTypes = {
-    car:PropTypes.array
+    car:PropTypes.object
 };
 
 export default CarCard;

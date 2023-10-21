@@ -10,6 +10,7 @@ import PrivetRouter from "../Provider/PrivetRouter";
 import CarCollections from "../Pages/CarCollections/CarCollections";
 import ViewDetails from "../Pages/CarCollections/ViewDetails";
 import UpdateProduct from "../Pages/UpdateProduct/UpdateProduct";
+import PrivetRoute from "../Provider/PrivetRouter";
 
 
 
@@ -27,25 +28,26 @@ const router = createBrowserRouter([
         {
            path: "/carcollections/:name",
            element: <CarCollections></CarCollections>,
-           loader: () => fetch('http://localhost:5000/car')
+           loader: () => fetch('https://brand-shop-server-o20o5wart-md-nirabs-projects.vercel.app/car')
         },
         {
             path: "/addproducts",
             element: <PrivetRouter><AddProducts></AddProducts></PrivetRouter>
         },
         {
-            path: "/mycart",
-            element: <PrivetRouter><MyCart></MyCart></PrivetRouter>
+            path: "/mycart/",
+            element: <PrivetRouter><MyCart></MyCart></PrivetRouter>,
+            loader: () => fetch('https://brand-shop-server-o20o5wart-md-nirabs-projects.vercel.app/car')
         },
         {
             path: "/viewdetails/:id",
-            element: <ViewDetails></ViewDetails>,
-            loader: () => fetch('http://localhost:5000/car')
+            element: <PrivetRoute ><ViewDetails></ViewDetails></PrivetRoute>,
+            loader: () => fetch('https://brand-shop-server-o20o5wart-md-nirabs-projects.vercel.app/car')
         },
         {
             path: "/updateproduct/:id",
             element: <PrivetRouter><UpdateProduct></UpdateProduct></PrivetRouter>,
-            loader: ({params}) => fetch(`http://localhost:5000/car/${params.id}`)
+            loader: ({params}) => fetch(`https://brand-shop-server-o20o5wart-md-nirabs-projects.vercel.app/car/${params.id}`)
         },
         {
             path: "/login",
