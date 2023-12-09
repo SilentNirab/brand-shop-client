@@ -1,8 +1,8 @@
-# React + Vite
+# Car Shop
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[Live Link](https://hotel-booking-fc964.web.app)
+## Features
+- Use Firebase Authentication.
+- Responsive design.
+- Easy to understand layout.
+- Clean and minimalistic.
